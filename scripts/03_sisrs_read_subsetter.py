@@ -61,6 +61,7 @@ compiled_single_end = list()
 
 #For each taxa directory...
 for tax_dir in trim_read_tax_dirs:
+    print(tax_dir)
     #List all files and set output dir
     files = sorted(glob(tax_dir+"*.fastq.gz"))
     taxon_ID = path.basename(tax_dir[:-1])
@@ -118,6 +119,7 @@ for tax_dir in trim_read_tax_dirs:
     #Count bases in paired-end files if present...
     if(len(left_pairs) == len(right_pairs) & len(left_pairs) > 0):
         for x in range(len(left_pairs)):
+            print(left_pairs[x])
             dataset_list.append(path.basename(left_pairs[x]))
             count_command = [
                 'reformat.sh',
